@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { MdArrowForward, MdArrowBack } from "react-icons/md";
 
@@ -15,6 +15,33 @@ const PopUp = ({ setShowPopUp }) => {
   const handleNext = () => {
     step === 1 ? setStep(2) : step === 2 ? setStep(3) : setStep(3);
   };
+
+  useEffect(() => {
+    let timer;
+
+    if (step === 2) {
+      timer = setInterval(() => {
+        setSeconds(seconds + 1);
+
+        if (seconds === 59) {
+          setSeconds(0);
+          setMinutes(minutes + 1);
+        }
+
+        if (minutes === 59) {
+          setSeconds(0);
+          setMinutes(0);
+          setHours(hours + 1);
+        }
+      }, 1000);
+    } else {
+      setHours(0);
+      setMinutes(0);
+      setSeconds(0);
+    }
+
+    return () => clearInterval(timer);
+  }, [seconds, minutes, hours, step]);
 
   return (
     <div className="pop-up">
@@ -48,8 +75,12 @@ const StepOne = () => {
   return <div className="step-one">this is popup step 1</div>;
 };
 
-const StepTwo = () => {
-  return <div className="step-two">00:00:00</div>;
+const StepTwo = ({ hours, minutes, seconds }) => {
+  return (
+    <div className="step-two">
+      {hours}:{minutes}:{seconds}
+    </div>
+  );
 };
 
 const StepThree = () => {
