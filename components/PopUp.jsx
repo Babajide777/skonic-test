@@ -72,14 +72,14 @@ const PopUp = ({ setShowPopUp }) => {
 };
 
 const StepOne = () => {
-  return <div className="step-one">this is popup step 1</div>;
+  return <div className="step-one steps">this is popup step 1</div>;
 };
 
 const StepTwo = ({ hours, minutes, seconds }) => {
   return (
-    <div className="step-two">
+    <div className="step-two steps">
       {hours < 10 ? "0" : null}
-      {hours}: {minutes < 10 ? "0" : null}
+      {hours}:{minutes < 10 ? "0" : null}
       {minutes}:{seconds < 10 ? "0" : null}
       {seconds}
     </div>
@@ -87,7 +87,7 @@ const StepTwo = ({ hours, minutes, seconds }) => {
 };
 
 const StepThree = () => {
-  return <div className="step-three">The assignment is complete!</div>;
+  return <div className="step-three steps">The assignment is complete!</div>;
 };
 
 export default PopUp;

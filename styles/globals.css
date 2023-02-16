@@ -32,3 +32,56 @@ main .main-btn {
   padding: 0.5rem 1rem;
   border-radius: 5px;
 }
+
+.pop-up {
+  width: 70vw;
+  max-width: 500px;
+  height: 150px;
+  background-color: bisque;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas: ". . . . . a" " . . b b . ." ". . b b . ." "c . . . . d";
+  padding: 0.5rem;
+  position: absolute;
+  z-index: 10;
+}
+
+.pop-up .close {
+  grid-area: a;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.pop-up .steps {
+  grid-area: b;
+  place-self: center;
+  font-weight: bold;
+}
+
+.pop-up .previous {
+  grid-area: c;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.pop-up .next {
+  grid-area: d;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.pop-up button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
