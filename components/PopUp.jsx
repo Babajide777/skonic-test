@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { BiArrowBack } from "react-icons/bi";
+import { BsForwardFill } from "react-icons/bs";
+import { AiOutlineClose } from "react-icons/ai";
 
 const PopUp = () => {
+  const [step, setStep] = useState(1);
+
   return (
     <div className="pop-up">
-      <button className="close"></button>
-      <StepOne />
-      <StepTwo />
-      <StepThree />
-
-      <button className="previous">Previous</button>
-      <button className="next">Next</button>
+      <button className="close">
+        <AiOutlineClose />
+      </button>
+      {step === 1 && <StepOne />}
+      {step === 2 && <StepTwo />}
+      {step === 3 && <StepThree />}
+      <button className="previous" disabled={step === 1 ? true : false}>
+        <BiArrowBack />
+      </button>
+      <button className="next" disabled={step === 3 ? true : false}>
+        <BsForwardFill />
+      </button>
     </div>
   );
 };
