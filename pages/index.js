@@ -16,8 +16,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        {showPopUp && <PopUp />}
-        <button className="main-btn" onClick={() => setShowPopUp(!showPopUp)}>
+        {showPopUp && <PopUp setShowPopUp={setShowPopUp} />}
+        <button className="main-btn" onClick={() => setShowPopUp(true)}>
           Click Here
         </button>
       </main>
