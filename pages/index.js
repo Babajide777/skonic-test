@@ -1,10 +1,12 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 import PopUp from "@/components/PopUp";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [showPopUp, setShowPopUp] = useState(false);
   return (
     <>
       <Head>
@@ -14,8 +16,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <PopUp />
-        <button className="main-btn">Click Here</button>
+        {showPopUp && <PopUp />}
+        <button className="main-btn" onClick={() => setShowPopUp(!showPopUp)}>
+          Click Here
+        </button>
       </main>
     </>
   );
