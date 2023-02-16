@@ -78,7 +78,10 @@ const StepOne = () => {
 const StepTwo = ({ hours, minutes, seconds }) => {
   return (
     <div className="step-two">
-      {hours}:{minutes}:{seconds}
+      {hours < 10 ? "0" : null}
+      {hours}: {minutes < 10 ? "0" : null}
+      {minutes}:{seconds < 10 ? "0" : null}
+      {seconds}
     </div>
   );
 };
